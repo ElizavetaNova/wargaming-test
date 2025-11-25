@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Опыт танков</title>
+    <link rel="stylesheet" href="/styles/main.scss">
+</head>
+
+<body>
+
+    <section class="content">
+        <p>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
+            dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex
+            ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat
+            nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit
+            anim id est laborum
+        </p>
+        <section class="tanks" id="tanks"></section>
+    </section>
+
+
+    <!-- Tooltip -->
+    <!-- <div class="tooltip" id="tooltip">
+        <div class="tooltip__inner">
+
+            <div class="tooltip__group">
+                <h4>Комплектация</h4>
+                <label><input type="radio" name="config" value="standard" checked> Стандартная</label>
+                <label><input type="radio" name="config" value="elite"> Элитная</label>
+                <label><input type="radio" name="config" value="premium"> Премиум</label>
+            </div>
+
+            <div class="tooltip__group">
+                <h4>Количество боёв</h4>
+
+                <input type="range" id="slider" min="0" max="300" value="0">
+                <input type="number" id="battlesInput" min="0" max="300">
+            </div>
+
+            <div class="tooltip__footer">
+                <span class="tooltip__xp-value">0</span>
+            </div>
+
+        </div>
+    </div> -->
+
+
+    <div id="tooltip" class="tooltip">
+        <div class="tooltip__wrapper">
+            <div class="tooltip__inner">
+
+                <!-- контент тултипа -->
+                <div class="tooltip__group">
+                    <h4>Комплектация</h4>
+                    <label><input type="radio" name="config" value="standard" checked> Стандартная</label>
+                    <label><input type="radio" name="config" value="elite"> Элитная</label>
+                    <label><input type="radio" name="config" value="premium"> Премиум</label>
+                </div>
+
+                <div class="tooltip__group">
+                    <h4>Количество боёв</h4>
+                    <input type="range" id="slider" min="0" max="300" value="0">
+                    <input type="number" id="battlesInput" min="0" max="300">
+                </div>
+
+            </div>
+        </div>
+
+        <svg class="tooltip__arrow" width="48" height="24" viewBox="0 0 48 24">
+            <path d="M2 24 L24 2 L46 24 Z" fill="var(--tooltip-bg)" stroke="var(--tooltip-border)" stroke-width="1" />
+        </svg>
+
+
+        <!-- хвостик -->
+        <div class="tooltip__arrow"></div>
+    </div>
+
+    <script type="module" src="/src/main.ts"></script>
+
+</body>
+
+</html>

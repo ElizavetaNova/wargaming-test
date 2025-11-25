@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg class="tooltip__arrow" xmlns="http://www.w3.org/2000/svg" width="48" height="24" viewBox="0 0 48 24" aria-hidden="true" focusable="false">
+  <path d="M2 24 L24 2 L46 24 Z" fill="var(--tooltip-bg, rgba(42,42,42,0.9))" stroke="var(--tooltip-border, #747474)" stroke-width="1"/>
+</svg>

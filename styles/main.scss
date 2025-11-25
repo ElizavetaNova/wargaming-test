@@ -1,0 +1,113 @@
+@use "variables" as *;
+
+body {
+  background: $bg;
+  font-family: Arial, sans-serif;
+  color: $white;
+  padding: 40px;
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  gap: 80px;
+  padding: 40px;
+
+  p {
+    height: 72px;
+    width: 100%;
+    font-size: 16px;
+  }
+}
+
+// .tanks {
+//   display: grid;
+//   grid-template-columns: repeat(3, 1fr);
+//   gap: 26px;
+
+//   @media (max-width: 1024px) {
+//     grid-template-columns: repeat(2, 1fr);
+//   }
+
+//   @media (max-width: 700px) {
+//     grid-template-columns: 1fr;
+//   }
+// }
+
+
+.tanks {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+
+  @media (max-width: 800px) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @media (max-width: 600px) {
+    grid-template-columns: 1fr;
+  }
+}
+
+.tank-card {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  align-items: center;
+  cursor: pointer;
+  max-width: 260px;
+
+  img {
+    width: 100%;
+    height: auto;
+  }
+}
+
+// .tooltip__arrow::after {
+//   content: '';
+// position: absolute;
+//   left: 42px;
+//   bottom: -1px;
+//   width: 26px;
+//   height: 1px;
+//   background: rgba(42, 42, 42, 0.8980392157);
+// }
+
+.tooltip {
+  position: absolute;
+  border: 1px solid #747474;
+  width: 300px;
+  z-index: 1000;
+}
+
+.tooltip__arrow {
+  position: absolute;
+  bottom: -23px;
+  rotate: 180deg;
+  left: 40px;   // динамически заменяешь через JS
+  pointer-events: none;
+  z-index: -5;
+  fill: $tooltip-bg;
+    stroke: #747474;
+}
+
+.tooltip__wrapper {
+  background: $tooltip-bg;
+    padding: 16px;
+    position: relative;
+    z-index: 2000;
+    backdrop-filter: blur(6px);
+}
+
+.tooltip__group {
+  margin-bottom: 16px;
+}
+
+input[type="number"].invalid {
+  border: 2px solid $accent;
+}
+
+.tooltip__xp-value {
+  font-size: 36px;
+  color: $yellow;
+}
