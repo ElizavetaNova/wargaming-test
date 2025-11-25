@@ -51,18 +51,35 @@
         <div class="tooltip__wrapper">
             <div class="tooltip__inner">
 
-                <!-- контент тултипа -->
-                <div class="tooltip__group">
-                    <h4>Комплектация</h4>
-                    <label><input type="radio" name="config" value="standard" checked> Стандартная</label>
-                    <label><input type="radio" name="config" value="elite"> Элитная</label>
-                    <label><input type="radio" name="config" value="premium"> Премиум</label>
+                <div class="tooltip__tank-info">
+                    <div class="tooltip__group">
+                        <h4>Комплектация</h4>
+                        
+                        <div class="tooltip__config-options">
+                            <label><input type="radio" name="config" value="standard" checked>Стандартная</label>
+                            <label><input type="radio" name="config" value="elite">Элитная</label>
+                            <label><input type="radio" name="config" value="premium">Премиум</label>
+                        </div>
+                    </div>
+
+                    <div class="tooltip__group">
+                        <h4>Количество боёв</h4>
+                        <input type="range" id="slider" min="0" max="300" value="0">
+                        <input type="number" id="battlesInput" min="0" max="300">
+                    </div>
                 </div>
 
-                <div class="tooltip__group">
-                    <h4>Количество боёв</h4>
-                    <input type="range" id="slider" min="0" max="300" value="0">
-                    <input type="number" id="battlesInput" min="0" max="300">
+                <div class="tooltip__experience_info">
+                    <div class="exp-group">
+                        <h4>Опыт танка</h4>
+                        <div class="exp-group__count-exp">
+                            <img src="/assets/icons/star.png" alt="star" class="exp-group__xp-icon" />
+                            <span id="count-exp"></span>
+                        </div>
+                    </div>
+
+                    <input type="number" value="" id="count-battles" class="tooltip__input-battles" />
+                    <input type="range" id="slider" min="0" max="300" value="100" class="range">
                 </div>
 
             </div>

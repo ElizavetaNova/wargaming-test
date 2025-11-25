@@ -1,0 +1,76 @@
+.range {
+  -webkit-appearance: none;
+    cursor: pointer;
+    position: relative;
+    padding: 14px 22px;
+    width: 376px;
+    height: 57px;
+    border-image: linear-gradient(to right, #727272, #252525);
+    border: 1px solid transparent;
+    border-radius: 12px;
+    background: linear-gradient(180deg, #4F4F4F, #313131) padding-box, /* фон */ linear-gradient(360deg, #252525, #727272) border-box;
+}
+
+/* === ТРЕК === */
+
+/* WebKit (Chrome, Edge, Safari) */
+.range::-webkit-slider-runnable-track {
+  height: 12px;
+  background: linear-gradient(to right, #f0c100 var(--val, 0%), #2a2a2a var(--val, 0%));
+  border-radius: 10px;
+  box-shadow: inset 0 0 4px rgba(0,0,0,0.6);
+}
+
+/* Firefox */
+.range::-moz-range-track {
+  height: 12px;
+  background: linear-gradient(to right, #f0c100 var(--val, 0%), #2a2a2a var(--val, 0%));
+  border-radius: 10px;
+  box-shadow: inset 0 0 4px rgba(0,0,0,0.6);
+}
+
+/* === THUMB (ползунок) === */
+
+/* Chrome */
+.range::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 32px;
+  height: 32px;
+  background: radial-gradient(circle at 30% 30%, #ffffff 0%, #dcdcdc 40%, #aaaaaa 70%, #777777 100%);
+  border-radius: 50%;
+  border: 2px solid #1a1a1a;
+  box-shadow:
+    0 0 6px rgba(0,0,0,0.8),
+    inset 0 0 4px rgba(255,255,255,0.5);
+  margin-top: -10px;
+  cursor: pointer;
+}
+
+/* Firefox */
+.range::-moz-range-thumb {
+  width: 32px;
+  height: 32px;
+  background: radial-gradient(circle at 30% 30%, #ffffff 0%, #dcdcdc 40%, #aaaaaa 70%, #777777 100%);
+  border-radius: 50%;
+  border: 2px solid #1a1a1a;
+  box-shadow:
+    0 0 6px rgba(0,0,0,0.8),
+    inset 0 0 4px rgba(255,255,255,0.5);
+  cursor: pointer;
+}
+
+/* Firefox fix */
+.range::-moz-range-progress {
+  background: #f0c100;
+  height: 12px;
+  border-radius: 10px;
+}
+
+/* IE/Edge old (не нужно, но на всякий случай) */
+.range::-ms-track {
+  height: 12px;
+  background: transparent;
+  border-color: transparent;
+  color: transparent;
+}
