@@ -1,3 +1,5 @@
+import { updateSliderProgress } from "./slider";
+
 export function setupCalculator() {
   const slider = document.getElementById("slider") as HTMLInputElement;
   const input = document.getElementById("battlesInput") as HTMLInputElement;
@@ -9,15 +11,19 @@ export function setupCalculator() {
   });
 
   input.addEventListener("input", () => {
-    const val = Number(input.value);
+    // Удаляем всё кроме цифр
+    input.value = input.value.replace(/\D/g, "");
 
-    if (val < 0 || val > 300) {
-      input.classList.add("invalid");
-      return;
-    }
+    let val = Number(input.value);
 
-    input.classList.remove("invalid");
+    if (val > 300) val = 300;
+    if (val < 0 || isNaN(val)) val = 0;
+
+    input.value = val.toString();
+
+    // Обновляем слайдер
     slider.value = val.toString();
+    updateSliderProgress(slider);
 
     updateXP();
   });
@@ -58,4 +64,9 @@ export function setupCalculator() {
 
     requestAnimationFrame(step);
   }
+
+  // ИНИЦИАЛИЗАЦИЯ ПРИ ПЕРВОМ ОТКРЫТИИ СТРАНИЦЫ
+  input.value = slider.value;
+  updateSliderProgress(slider);
+  updateXP();
 }

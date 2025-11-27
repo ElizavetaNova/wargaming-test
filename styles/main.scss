@@ -25,7 +25,8 @@ body {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   justify-items: center;
-  gap: 30px;
+  grid-column-gap: 30px;
+  grid-row-gap: 80px;
 
   @media (max-width: 800px) {
     grid-template-columns: repeat(2, 1fr);
@@ -68,7 +69,8 @@ body {
   border-radius: 0;
   z-index: 9999;
 }
-.tooltip__close { 
+
+.tooltip__close {
   position: absolute;
   top: 12px;
   right: 12px;
@@ -85,18 +87,25 @@ body {
   width: 672px;
   visibility: hidden;
 
-
   z-index: 1000;
 
   &.visible {
-   visibility: visible;
-   transition: visibility 0.3s ease-in-out;
+    visibility: visible;
+    transition: visibility 0.3s ease-in-out;
+  }
+
+  @media (max-width: 750px) {
+    width: fit-content;
   }
 
   &__inner {
     display: flex;
     flex-direction: row;
     gap: 39px;
+
+    @media (max-width: 750px) {
+      gap: 15px;
+    }
   }
 
   &__tank-info {
@@ -175,6 +184,10 @@ body {
   position: relative;
   z-index: 2000;
   backdrop-filter: blur(6px);
+
+  @media (max-width: 750px) {
+    padding: 20px;
+  }
 }
 
 .tooltip__group {
