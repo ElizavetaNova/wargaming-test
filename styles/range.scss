@@ -3,7 +3,7 @@
   cursor: pointer;
   position: relative;
   padding: 14px 22px;
-  width: 376px;
+  width: 345px;
   height: 57px;
   border-image: linear-gradient(to right, #727272, #252525);
   border: 1px solid transparent;
@@ -88,4 +88,32 @@
   background: url("/assets/icons/controller.png") no-repeat center/cover;
   border: none;
   cursor: grab;
+}
+
+.range-number {
+  width: 128px;
+  height: 48px;
+  // background: linear-gradient(180deg, #4D4A3D, #6E653F);
+  border: 4px solid #000000;
+  border-radius: 4px;
+  text-align: end;
+  color: #A19D72;
+  /* background: transparent; */
+  font-size: 34px;
+  font-weight: 700;
+  // background-image: repeating-linear-gradient(-45deg, #4d4a3d00, #4d4a3d00 5px, #0000 5px, #000 6px);
+
+   background-image:
+    repeating-linear-gradient(
+      -45deg,
+      rgb(0, 0, 0) 0px,
+      rgb(0, 0, 0) 1px,
+      rgba(0, 0, 0, 0) 1px,
+      rgba(0, 0, 0, 0) 5px
+    ),
+    linear-gradient(180deg, #4D4A3D, #6E653F);
+
+   box-shadow:
+    inset 0px 4px 6px rgba(0, 0, 0, 0.5),
+    0px 1px 1px rgba(52, 51, 55, 0.75);
 }

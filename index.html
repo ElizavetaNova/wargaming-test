@@ -20,41 +20,15 @@
         <section class="tanks" id="tanks"></section>
     </section>
 
-
-    <!-- Tooltip -->
-    <!-- <div class="tooltip" id="tooltip">
-        <div class="tooltip__inner">
-
-            <div class="tooltip__group">
-                <h4>Комплектация</h4>
-                <label><input type="radio" name="config" value="standard" checked> Стандартная</label>
-                <label><input type="radio" name="config" value="elite"> Элитная</label>
-                <label><input type="radio" name="config" value="premium"> Премиум</label>
-            </div>
-
-            <div class="tooltip__group">
-                <h4>Количество боёв</h4>
-
-                <input type="range" id="slider" min="0" max="300" value="0">
-                <input type="number" id="battlesInput" min="0" max="300">
-            </div>
-
-            <div class="tooltip__footer">
-                <span class="tooltip__xp-value">0</span>
-            </div>
-
-        </div>
-    </div> -->
-
-
     <div id="tooltip" class="tooltip">
+        <button class="tooltip__close">✕</button>
         <div class="tooltip__wrapper">
             <div class="tooltip__inner">
 
                 <div class="tooltip__tank-info">
                     <div class="tooltip__group">
                         <h4>Комплектация</h4>
-                        
+
                         <div class="tooltip__config-options">
                             <label><input type="radio" name="config" value="standard" checked>Стандартная</label>
                             <label><input type="radio" name="config" value="elite">Элитная</label>
@@ -64,8 +38,7 @@
 
                     <div class="tooltip__group">
                         <h4>Количество боёв</h4>
-                        <input type="range" id="slider" min="0" max="300" value="0">
-                        <input type="number" id="battlesInput" min="0" max="300">
+                        <input type="range" id="slider" min="0" max="300" value="100" class="range">
                     </div>
                 </div>
 
@@ -74,24 +47,20 @@
                         <h4>Опыт танка</h4>
                         <div class="exp-group__count-exp">
                             <img src="/assets/icons/star.png" alt="star" class="exp-group__xp-icon" />
-                            <span id="count-exp"></span>
+                            <span id="xp-value"></span>
                         </div>
                     </div>
 
-                    <input type="number" value="" id="count-battles" class="tooltip__input-battles" />
-                    <input type="range" id="slider" min="0" max="300" value="100" class="range">
+                    <input type="number" id="battlesInput" min="0" max="300" value="100" class="range-number">
                 </div>
 
             </div>
         </div>
 
-        <svg class="tooltip__arrow" width="48" height="24" viewBox="0 0 48 24">
-            <path d="M2 24 L24 2 L46 24 Z" fill="var(--tooltip-bg)" stroke="var(--tooltip-border)" stroke-width="1" />
+        <svg class="tooltip__arrow" width="48" height="28" viewBox="0 0 48 28">
+            <path d="M2 28 L24 2 L46 28 Z" fill="var(--tooltip-bg)" stroke="var(--tooltip-border)" stroke-width="1" />
         </svg>
 
-
-        <!-- хвостик -->
-        <div class="tooltip__arrow"></div>
     </div>
 
     <script type="module" src="/src/main.ts"></script>

@@ -1,7 +1,7 @@
 export function setupCalculator() {
   const slider = document.getElementById("slider") as HTMLInputElement;
   const input = document.getElementById("battlesInput") as HTMLInputElement;
-  const xpView = document.querySelector(".tooltip__xp-value") as HTMLElement;
+  const xpView = document.getElementById("xp-value") as HTMLElement;
 
   slider.addEventListener("input", () => {
     input.value = slider.value;
@@ -30,12 +30,15 @@ export function setupCalculator() {
     const battles = Number(slider.value);
     const config = document.querySelector('input[name="config"]:checked') as HTMLInputElement;
 
-    let multiplier = 3;
+    const multiplier = 3;
+    let percentageOfComplete = 0
 
-    if (config.value === "elite") multiplier = 3.1;
-    if (config.value === "premium") multiplier = 3.2;
+    if (config.value === "elite") percentageOfComplete = 0.1;
+    if (config.value === "premium") percentageOfComplete = 0.2;
 
-    animateXP(Math.round(battles * multiplier));
+    const xpWOBonus = battles * multiplier;
+
+    animateXP(Math.round(xpWOBonus + xpWOBonus * percentageOfComplete));
   }
 
   let lastXP = 0;
