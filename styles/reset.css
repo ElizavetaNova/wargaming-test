@@ -74,3 +74,16 @@ input[type=range]::-ms-track {
   border-color: transparent;
   color: transparent;
 }
+
+/* Для браузеров на основе WebKit (Chrome, Safari, Opera) */
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Для других браузеров */
+input[type=number] {
+  -moz-appearance: textfield;
+  appearance: none;
+}

@@ -1,5 +1,6 @@
 export function setupSliders() {
   const sliders = document.querySelectorAll<HTMLInputElement>(".range");
+  const input = document.getElementById("battlesInput") as HTMLInputElement;
 
   sliders.forEach((slider) => {
     const updateProgress = () => {

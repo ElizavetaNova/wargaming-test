@@ -88,8 +88,6 @@ function showTooltip(card: HTMLElement, event?: MouseEvent) {
   tooltip.classList.add("visible");
 }
 
-
-
 export function setupTooltip() {
   const tooltip = document.getElementById("tooltip") as HTMLElement;
   let hoveredCard: HTMLElement | null = null;
