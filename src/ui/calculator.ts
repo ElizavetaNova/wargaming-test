@@ -11,7 +11,6 @@ export function setupCalculator() {
   });
 
   input.addEventListener("input", () => {
-    // Удаляем всё кроме цифр
     input.value = input.value.replace(/\D/g, "");
 
     let val = Number(input.value);

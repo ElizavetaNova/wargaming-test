@@ -1,3 +1,5 @@
+@use "variables" as *;
+
 .range {
   -webkit-appearance: none;
   cursor: pointer;
@@ -9,27 +11,27 @@
   border: 1px solid transparent;
   border-radius: 4px;
   background: linear-gradient(180deg, #4F4F4F, #313131) padding-box,
-    /* фон */
     linear-gradient(360deg, #252525, #727272) border-box;
 
   @media (max-width: 600px) {
-max-width: 345px;
-width: 100%;
+    max-width: 345px;
+    width: 100%;
   }
 }
 
 /* ------------------------- */
-/* ТРЕК (Chrome, Edge, Safari) */
+/* TRACK (Chrome, Edge, Safari) */
 /* ------------------------- */
+
 .range::-webkit-slider-runnable-track {
   height: 13px;
   border-radius: 6px;
-  background: #1D1D1F;
+  background: $track-bg;
   border: 4px solid transparent;
 
   background-image:
-    linear-gradient(180deg, #FFD100, #997D00),
-    linear-gradient(#1D1D1F, #1D1D1F),
+    $track-gradient,
+    linear-gradient($track-bg, $track-bg),
     linear-gradient(180deg, #262626, #303030);
 
   background-size: var(--progress, 0%) 100%, 100% 100%, 100% 100%;
@@ -40,19 +42,19 @@ width: 100%;
 }
 
 /* ------------------------- */
-/*      ТРЕК (Firefox)       */
+/*      TRACK (Firefox)       */
 /* ------------------------- */
 
 .range::-moz-range-track {
   height: 5px;
 
   border-radius: 6px;
-  background: #1D1D1F;
+  background: $track-bg;
 
   margin-left: -6px;
   border: 4px solid transparent;
   background:
-    linear-gradient(#1D1D1F, #1D1D1F) padding-box,
+    linear-gradient($track-bg, $track-bg) padding-box,
     linear-gradient(180deg, #262626, #303030) border-box;
 }
 
@@ -61,12 +63,11 @@ width: 100%;
   height: 5px;
   width: 10px;
   border-radius: 6px;
-  background: linear-gradient(180deg, #FFD100, #997D00);
+  background: $track-gradient;
 }
 
-/* === THUMB (ползунок) === */
 /* ------------------------- */
-/*     КРУЖОК (THUMB)        */
+/*          THUMB            */
 /* ------------------------- */
 
 /* Chrome */
@@ -77,7 +78,6 @@ width: 100%;
   height: 36px;
   background: url("/assets/icons/controller.png") no-repeat center/cover;
   margin-top: -15px;
-  /* поднимаем кружок над треком */
   cursor: grab;
 }
 
@@ -98,13 +98,13 @@ width: 100%;
 .range-number {
   width: 128px;
   height: 48px;
-  border: 4px solid #000000;
+  border: 4px solid $black;
   border-radius: 4px;
   text-align: end;
   color: #A19D72;
   font-size: 34px;
   font-weight: 700;
-  
+
   background-image:
     url('/assets/texture.png'),
     linear-gradient(180deg, #4D4A3D, #6E653F);
@@ -116,6 +116,6 @@ width: 100%;
 }
 
 .range-number:focus {
-  border: 4px solid #F8AA31;
+  border: 4px solid $accent;
   outline: none;
 }

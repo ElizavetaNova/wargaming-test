@@ -12,7 +12,7 @@
 
 /* Allow percentage-based heights */
 html, body {
-  height: 100%;
+  height: auto;
 }
 
 /* Remove built-in form typography styles */
@@ -52,9 +52,7 @@ button::-moz-focus-inner {
 
 
 input[type=range] {
-  -webkit-appearance: none; /* Hides the slider so that custom slider can be made */
-  /*width: 100%; /* Specific width is required for Firefox. */
-  /*background: transparent; /* Otherwise white in Chrome */
+  -webkit-appearance: none;
 }
 
 input[type=range]::-webkit-slider-thumb {
@@ -62,27 +60,23 @@ input[type=range]::-webkit-slider-thumb {
 }
 
 input[type=range]:focus {
-  outline: none; /* Removes the blue border. You should probably do some kind of focus styling for accessibility reasons though. */
+  outline: none;
 }
 
 input[type=range]::-ms-track {
   width: 100%;
   cursor: pointer;
-
-  /* Hides the slider so custom styles can be added */
   
   border-color: transparent;
   color: transparent;
 }
 
-/* Для браузеров на основе WebKit (Chrome, Safari, Opera) */
 input[type=number]::-webkit-inner-spin-button,
 input[type=number]::-webkit-outer-spin-button {
   -webkit-appearance: none;
   margin: 0;
 }
 
-/* Для других браузеров */
 input[type=number] {
   
   appearance: none;

@@ -34,6 +34,8 @@ function showTooltip(card: HTMLElement, tanks: Tank[], event?: MouseEvent) {
 
    // FULLSCREEN MODE для tablet + mobile
   if (isClickMode()) {
+    document.body.style.overflow = "hidden";
+
     const tankId = card.dataset.tank;
     const tankTitleEl = document.getElementById("tooltip-title") as HTMLElement;
 
@@ -113,10 +115,11 @@ export function setupTooltip(tanks: Tank[]) {
   const closeBtn = tooltip.querySelector(".tooltip__close");
   closeBtn?.addEventListener("click", () => {
     tooltip.classList.remove("visible");
+    document.body.style.overflow = "";
   });
 
   function hideIfAllowed() {
-    if (isClickMode()) return; // click-mode — другая логика закрытия
+    if (isClickMode()) return;
     if (!hoveredCard && !isHoveringTooltip) {
       tooltip.classList.remove("visible");
     }

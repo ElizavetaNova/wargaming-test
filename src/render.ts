@@ -8,7 +8,7 @@ export function renderTanks(tanks: Tank[]) {
     return;
   }
 
-  container.innerHTML = ""; // очистка
+  container.innerHTML = "";
 
   tanks.forEach(tank => {
     const card = document.createElement("div");

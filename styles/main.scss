@@ -10,7 +10,6 @@ body {
 
   @media (max-width: 800px) {
     padding: 20px 30px;
-
   }
 }
 
@@ -56,16 +55,6 @@ body {
   }
 }
 
-// .tooltip__arrow::after {
-//   content: '';
-// position: absolute;
-//   left: 42px;
-//   bottom: -1px;
-//   width: 26px;
-//   height: 1px;
-//   background: rgba(42, 42, 42, 0.8980392157);
-// }
-
 .tooltip.fullscreen {
   position: fixed;
   inset: 0;
@@ -96,7 +85,7 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  background: #454540;
+  background: $bt-bg;
   border: none;
   cursor: pointer;
   height: 36px;
@@ -107,7 +96,7 @@ body {
 
 .tooltip {
   position: absolute;
-  border: 1px solid #747474;
+  border: 1px solid $border-color;
   width: 672px;
   visibility: hidden;
 
@@ -116,22 +105,6 @@ body {
   &.visible {
     visibility: visible;
     transition: visibility 0.3s ease-in-out;
-  }
-
-  // @media (max-width: 750px) {
-  //   width: fit-content;
-  // }
-
-  &__inner {
-    display: flex;
-    flex-direction: row;
-    gap: 39px;
-
-    @media (max-width: 800px) {
-      flex-direction: column;
-      align-items: center;
-      gap: 40px;
-    }
   }
 
   &__tank-info {
@@ -166,11 +139,28 @@ body {
 
   h4 {
     font-size: 28px;
-    color: #AEAC7E;
+    color: $header-color;
 
     @media (max-width: 600px) {
       font-size: 22px;
     }
+  }
+
+  @media (max-width: 800px) {
+    border: none;
+    position: fixed;
+  }
+}
+
+.tooltip__inner {
+  display: flex;
+  flex-direction: row;
+  gap: 39px;
+
+  @media (max-width: 800px) {
+    flex-direction: column;
+    align-items: center;
+    gap: 40px;
   }
 }
 
@@ -212,7 +202,7 @@ body {
   display: flex;
   flex-direction: column;
   gap: 28px;
-
+  width: 100%;
 
   &__count-exp {
     display: flex;
@@ -220,7 +210,7 @@ body {
     gap: 48px;
 
     span {
-      color: #F8AA31;
+      color: $accent;
       font-size: 56px;
       font-weight: 700;
 
@@ -251,7 +241,6 @@ body {
     border-width: 1px 0 0 0;
     border-image: linear-gradient(90deg, rgba(102, 102, 102, 0) 0%, #666666 51%, rgba(102, 102, 102, 0) 100%) 1;
     width: 100%;
-
   }
 
   @media (max-width: 600px) {
@@ -263,11 +252,11 @@ body {
   position: absolute;
   bottom: -28px;
   rotate: 180deg;
-  left: 40px; // динамически заменяешь через JS
+  left: 40px;
   pointer-events: none;
   z-index: -5;
   fill: $tooltip-bg;
-  stroke: #747474;
+  stroke: $border-color;
 }
 
 .tooltip__wrapper {
@@ -302,10 +291,6 @@ body {
   }
 }
 
-input[type="number"].invalid {
-  border: 2px solid $accent;
-}
-
 .tooltip__xp-value {
   font-size: 36px;
   color: $yellow;
@@ -321,7 +306,7 @@ input[type="radio"] {
   border-radius: 50%;
   display: inline-block;
   position: relative;
-  accent-color: #676767;
+  accent-color: $gray-light;
   background-color: #DDDDDD;
 
   cursor: pointer;
@@ -331,6 +316,22 @@ input[type="radio"]:checked::before {
   content: "";
   position: absolute;
   inset: 4px;
-  background: #676767;
+  background: $gray-light;
   border-radius: 50%;
+}
+
+.floating-button {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 200;
+  width: 44px;
+  height: 44px;
+  background: $bt-bg;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  border: none;
 }
