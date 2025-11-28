@@ -265,6 +265,7 @@ body {
   position: relative;
   z-index: 2000;
   backdrop-filter: blur(6px);
+  overflow-y: auto;
 
   @media (max-width: 800px) {
     display: flex;
