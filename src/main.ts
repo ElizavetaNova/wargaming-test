@@ -3,6 +3,7 @@ import { setupCalculator } from "./ui/calculator";
 import { tanks } from "./data/tanksData";
 import { renderTanks } from "./render";
 import {setupSliders} from "./ui/slider";
+import { setupScrollUpButton } from "./ui/ui";
 import '../styles/main.scss';
 
 setupSliders();
@@ -10,3 +11,4 @@ setupSliders();
 renderTanks(tanks);
 setupTooltip(tanks);
 setupCalculator();
+setupScrollUpButton();

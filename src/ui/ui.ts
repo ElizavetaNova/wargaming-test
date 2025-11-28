@@ -32,7 +32,7 @@ function showTooltip(card: HTMLElement, tanks: Tank[], event?: MouseEvent) {
 
   const mode = getLayoutMode();
 
-   // FULLSCREEN MODE для tablet + mobile
+  // FULLSCREEN MODE для tablet + mobile
   if (isClickMode()) {
     document.body.style.overflow = "hidden";
 
@@ -149,7 +149,7 @@ export function setupTooltip(tanks: Tank[]) {
     });
 
     card.addEventListener("mouseleave", () => {
-       if (isClickMode()) return;
+      if (isClickMode()) return;
       hoveredCard = null;
       setTimeout(() => {
         if (!hoveredCard && !isHoveringTooltip) {
@@ -158,4 +158,15 @@ export function setupTooltip(tanks: Tank[]) {
       }, 200)
     });
   });
+}
+
+export function setupScrollUpButton() {
+  const button = document.getElementById("scrollUpButton");
+
+  button?.addEventListener("click", () => {
+    window.scrollTo({
+      top: 0,         // скроллим к верху страницы
+      behavior: "smooth" // плавная прокрутка
+    });
+  })
 }
