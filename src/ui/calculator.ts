@@ -53,7 +53,8 @@ export function setupCalculator() {
 
     function step(now: number) {
       const progress = Math.min((now - start) / duration, 1);
-      const value = Math.floor(lastXP + (target - lastXP) * progress);
+      const startXP = lastXP || 0;
+      const value = Math.floor(startXP  + (target - startXP ) * progress);
 
       xpView.textContent = value.toString();
 
