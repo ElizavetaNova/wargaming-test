@@ -52,10 +52,12 @@ export function setupCalculator() {
     const start = performance.now();
 
     function step(now: number) {
-      const progress = Math.min((now - start) / duration, 1);
+      const progress = now > start
+        ? Math.min((now - start) / duration, 1)
+        : 0;
       const startXP = lastXP || 0;
-      const value = Math.floor(startXP  + (target - startXP ) * progress);
 
+      const value = Math.floor(startXP + (target - startXP) * progress);
       xpView.textContent = value.toString();
 
       if (progress < 1) requestAnimationFrame(step);

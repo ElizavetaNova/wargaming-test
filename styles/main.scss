@@ -207,7 +207,7 @@ body {
   &__count-exp {
     display: flex;
     flex-direction: row;
-    gap: 48px;
+    justify-content: space-between;
 
     span {
       color: $accent;
@@ -219,7 +219,7 @@ body {
       }
     }
 
-    @media (max-width: 600px) {
+    @media (max-width: 800px) {
       gap: 32px;
     }
   }
