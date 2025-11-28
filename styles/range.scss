@@ -11,6 +11,11 @@
   background: linear-gradient(180deg, #4F4F4F, #313131) padding-box,
     /* фон */
     linear-gradient(360deg, #252525, #727272) border-box;
+
+  @media (max-width: 600px) {
+max-width: 345px;
+width: 100%;
+  }
 }
 
 /* ------------------------- */
@@ -101,11 +106,7 @@
   font-weight: 700;
   
   background-image:
-    repeating-linear-gradient(-45deg,
-      rgb(0, 0, 0) 0px,
-      rgb(0, 0, 0) 1px,
-      rgba(0, 0, 0, 0) 1px,
-      rgba(0, 0, 0, 0) 5px),
+    url('/assets/texture.png'),
     linear-gradient(180deg, #4D4A3D, #6E653F);
 
   box-shadow:

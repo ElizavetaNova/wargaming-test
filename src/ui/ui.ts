@@ -1,3 +1,5 @@
+import type { Tank } from "../types";
+
 function getLayoutMode() {
   const width = window.innerWidth;
   if (width < 600) return "mobile";     // 1 в ряд
@@ -18,15 +20,28 @@ function getRowIndex(card: HTMLElement, itemsPerRow: number) {
   return Math.floor(index / itemsPerRow);
 }
 
+function isClickMode() {
+  const mode = getLayoutMode();
+  return mode === "mobile" || mode === "tablet";
+}
 
-function showTooltip(card: HTMLElement, event?: MouseEvent) {
+
+function showTooltip(card: HTMLElement, tanks: Tank[], event?: MouseEvent) {
   const tooltip = document.getElementById("tooltip") as HTMLElement;
   const arrow = tooltip.querySelector(".tooltip__arrow") as HTMLElement;
 
   const mode = getLayoutMode();
 
-  // Мобильный режим → Fullscreen
-  if (mode === "mobile") {
+   // FULLSCREEN MODE для tablet + mobile
+  if (isClickMode()) {
+    const tankId = card.dataset.tank;
+    const tankTitleEl = document.getElementById("tooltip-title") as HTMLElement;
+
+    if (tankId) {
+      const tank = tanks.find(t => t.id === tankId);
+      if (tank) tankTitleEl.textContent = tank.name;
+    }
+
     tooltip.classList.add("fullscreen");
     tooltip.classList.add("visible");
     tooltip.style.left = "";
@@ -59,7 +74,7 @@ function showTooltip(card: HTMLElement, event?: MouseEvent) {
   let tooltipX = rect.left + rect.width / 2 - tooltip.offsetWidth / 2;
 
   // ограничение внутри окна
-  const padding = 40;
+  const padding = mode === "desktop" ? 40 : 30;
   tooltipX = Math.max(
     padding,
     Math.min(tooltipX, window.innerWidth - tooltip.offsetWidth - padding)
@@ -88,8 +103,10 @@ function showTooltip(card: HTMLElement, event?: MouseEvent) {
   tooltip.classList.add("visible");
 }
 
-export function setupTooltip() {
+export function setupTooltip(tanks: Tank[]) {
   const tooltip = document.getElementById("tooltip") as HTMLElement;
+  const cards = document.querySelectorAll(".tank-card");
+
   let hoveredCard: HTMLElement | null = null;
   let isHoveringTooltip = false;
 
@@ -98,37 +115,38 @@ export function setupTooltip() {
     tooltip.classList.remove("visible");
   });
 
-  const cards = document.querySelectorAll(".tank-card");
-
   function hideIfAllowed() {
-    if (!hoveredCard && !isHoveringTooltip && getLayoutMode() !== "mobile") {
+    if (isClickMode()) return; // click-mode — другая логика закрытия
+    if (!hoveredCard && !isHoveringTooltip) {
       tooltip.classList.remove("visible");
     }
   }
 
   tooltip.addEventListener("mouseenter", () => {
-    isHoveringTooltip = true;
+    if (!isClickMode()) isHoveringTooltip = true;
   });
 
   tooltip.addEventListener("mouseleave", () => {
-    isHoveringTooltip = false;
-    hideIfAllowed();
+    if (!isClickMode()) {
+      isHoveringTooltip = false;
+      hideIfAllowed();
+    }
   });
 
   cards.forEach(card => {
     card.addEventListener("mouseenter", (event) => {
-      if (getLayoutMode() === "mobile") return;
+      if (isClickMode()) return;
       hoveredCard = event.currentTarget as HTMLElement;
-      showTooltip(hoveredCard, event as MouseEvent);
+      showTooltip(hoveredCard, tanks);
     });
 
     card.addEventListener("click", (event) => {
-      if (getLayoutMode() !== "mobile") return;
-      showTooltip(event.currentTarget as HTMLElement);
+      if (!isClickMode()) return;
+      showTooltip(event.currentTarget as HTMLElement, tanks);
     });
 
     card.addEventListener("mouseleave", () => {
-      if (getLayoutMode() === "mobile") return;
+       if (isClickMode()) return;
       hoveredCard = null;
       setTimeout(() => {
         if (!hoveredCard && !isHoveringTooltip) {

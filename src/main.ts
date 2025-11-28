@@ -7,5 +7,5 @@ import {setupSliders} from "./ui/slider";
 setupSliders();
 
 renderTanks(tanks);
-setupTooltip();
+setupTooltip(tanks);
 setupCalculator();
